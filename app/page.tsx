@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 
-import cssStyles from './Home.module..css';
+import cssStyles from './Home.module.css';
 
 
 const css = (cssStyles || {}) as Record<string, string>;
