@@ -1,7 +1,6 @@
 import React from 'react';
 
-// Якщо у майбутньому GoIT додасть ErrorMessage.module.css, його можна імпортувати тут.
-// Наразі використовуємо прості вбудовані інлайн-стилі, щоб не ламалася збірка.
+
 interface ErrorMessageProps {
   message?: string;
 }
