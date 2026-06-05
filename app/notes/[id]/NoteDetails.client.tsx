@@ -6,7 +6,7 @@ import { useParams } from 'next/navigation';
 import { fetchNoteById } from '../../../lib/api';
 
 
-import cssStyles from './details.module.css';
+import cssStyles from './details.module..css';
 
 // Сувора типізація стилів для Next.js
 const css = (cssStyles || {}) as Record<string, string>;
