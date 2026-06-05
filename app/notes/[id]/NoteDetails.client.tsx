@@ -6,10 +6,11 @@ import { useParams } from 'next/navigation';
 import { fetchNoteById } from '../../../lib/api';
 
 
-import cssStyles from './details.module..css';
+import cssStyles from './details.module.css';
 
 
 const css = (cssStyles || {}) as Record<string, string>;
+
 
 export default function NoteDetailsClient() {
   const { id } = useParams();

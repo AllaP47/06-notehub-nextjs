@@ -2,7 +2,6 @@ import axios from 'axios';
 import type { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import type { Note } from '../types/note';
 
-// 1. ЗАЛИШАЄМО ДЛЯ РОБОТА-МЕНТОРА: Тести GoIT обов'язково хочуть бачити цей рядок
 const noteApi = axios.create({
   baseURL: 'https://goit.study',
 });
@@ -32,51 +31,22 @@ export interface CreateNoteData {
   tag: string;
 }
 
-// --- Функції запитів через прямий виклик чистих методів axios ---
-// Це захистить браузер від помилки ERR_CERT_COMMON_NAME_INVALID
-
 export const fetchNotes = async (params: FetchNotesParams = {}): Promise<FetchNotesResponse> => {
-  const token = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
-
-  // Рядок 41: Використовуємо пряму робочу адресу бекенду NoteHub
-  const response: AxiosResponse<FetchNotesResponse> = await axios.get('https://goit.study', {
-    params,
-    headers: {
-      Authorization: token ? `Bearer ${token}` : '',
-    },
-  });
+  const response: AxiosResponse<FetchNotesResponse> = await noteApi.get('/notes', { params });
   return response.data;
 };
 
 export const createNote = async (noteData: CreateNoteData): Promise<Note> => {
-  const token = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
-
-  const response: AxiosResponse<Note> = await axios.post('https://goit.study', noteData, {
-    headers: {
-      Authorization: token ? `Bearer ${token}` : '',
-    },
-  });
+  const response: AxiosResponse<Note> = await noteApi.post('/notes', noteData);
   return response.data;
 };
 
 export const deleteNote = async (id: string): Promise<Note> => {
-  const token = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
-
-  const response: AxiosResponse<Note> = await axios.delete(`https://goit.study/${id}`, {
-    headers: {
-      Authorization: token ? `Bearer ${token}` : '',
-    },
-  });
+  const response: AxiosResponse<Note> = await noteApi.delete(`/notes/${id}`);
   return response.data;
 };
 
 export const fetchNoteById = async (id: string): Promise<Note> => {
-  const token = process.env.NEXT_PUBLIC_NOTEHUB_TOKEN;
-
-  const response: AxiosResponse<Note> = await axios.get(`https://goit.study/${id}`, {
-    headers: {
-      Authorization: token ? `Bearer ${token}` : '',
-    },
-  });
+  const response: AxiosResponse<Note> = await noteApi.get(`/notes/${id}`);
   return response.data;
 };
