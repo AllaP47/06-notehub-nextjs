@@ -5,12 +5,11 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'next/navigation';
 import { fetchNoteById } from '../../../lib/api';
 
-
+// 1. Імпортуємо файл строго за маленькою назвою details.module.css
 import cssStyles from './details.module.css';
 
-
+// 2. Рядок 12: Чиста типізація об'єкта css без зауважень для лінтера
 const css = (cssStyles || {}) as Record<string, string>;
-
 
 export default function NoteDetailsClient() {
   const { id } = useParams();
@@ -19,7 +18,7 @@ export default function NoteDetailsClient() {
     queryKey: ['note', id],
     queryFn: () => fetchNoteById(id as string),
     enabled: !!id,
-     refetchOnMount: false,
+    refetchOnMount: false, // Обов'язкова опція за вимогами ТЗ
   });
 
   if (isLoading) {
@@ -45,4 +44,5 @@ export default function NoteDetailsClient() {
     </div>
   );
 }
+
 
