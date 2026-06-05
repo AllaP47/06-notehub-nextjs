@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'next/navigation';
 import { fetchNoteById } from '../../../lib/api';
 
-// ВИПРАВЛЕНО: Імпортуємо файл із поточної папки динамічного маршруту
+
 import cssStyles from './details.module.css';
 
 // Сувора типізація стилів для Next.js

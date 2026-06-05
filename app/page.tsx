@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 
-// Імпортуємо файл із поточної папки app/
+
 import cssStyles from './Home.module..css';
 
-// Типізація для уникнення помилок лінтера
+
 const css = (cssStyles || {}) as Record<string, string>;
 
 export default function HomePage() {
@@ -24,7 +24,7 @@ export default function HomePage() {
           and productivity.
         </p>
         
-        {/* Додаємо кнопку переходу на Notes */}
+      
         <div style={{ marginTop: '24px', textAlign: 'center' }}>
           <Link 
             href="/notes" 
