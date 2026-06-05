@@ -1,8 +1,7 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  reactCompiler: true,
+  /* Тут за замовчуванням конфіг має бути чистим */
 };
 
 export default nextConfig;

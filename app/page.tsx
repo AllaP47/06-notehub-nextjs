@@ -1,31 +1,30 @@
-
 import React from 'react';
 import Link from 'next/link';
 
+// Імпортуємо файл із поточної папки app/
+import cssStyles from './Home.module..css';
 
-import cssStyles from './Home.module.css';
-
-
+// Типізація для уникнення помилок лінтера
 const css = (cssStyles || {}) as Record<string, string>;
 
 export default function HomePage() {
   return (
     <main className={css.main || ''}>
-      <div className={css.container}>
-        <h1 className={css.title}>Welcome to NoteHub</h1>
-        <p className={css.description}>
+      <div className={css.container || ''}>
+        <h1 className={css.title || ''}>Welcome to NoteHub</h1>
+        <p className={css.description || ''}>
           NoteHub is a simple and efficient application designed for managing
           personal notes. It helps keep your thoughts organized and accessible
           in one place, whether you are at home or on the go.
         </p>
-        <p className={css.description}>
+        <p className={css.description || ''}>
           The app provides a clean interface for writing, editing, and browsing
           notes. With support for keyword search and structured organization,
           NoteHub offers a streamlined experience for anyone who values clarity
           and productivity.
         </p>
         
-   
+        {/* Додаємо кнопку переходу на Notes */}
         <div style={{ marginTop: '24px', textAlign: 'center' }}>
           <Link 
             href="/notes" 
@@ -46,4 +45,5 @@ export default function HomePage() {
     </main>
   );
 }
+
 
