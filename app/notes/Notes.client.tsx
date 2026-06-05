@@ -24,6 +24,7 @@ export default function NotesClient() {
     queryKey: ['notes', page, search],
     queryFn: () => fetchNotes({ page, perPage, search }),
     placeholderData: (previousData: FetchNotesResponse | undefined) => previousData,
+     refetchOnMount: false,
   });
 
   const debouncedSearch = useDebouncedCallback((value: string) => {

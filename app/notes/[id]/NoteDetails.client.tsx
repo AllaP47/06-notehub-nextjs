@@ -8,7 +8,7 @@ import { fetchNoteById } from '../../../lib/api';
 
 import cssStyles from './details.module..css';
 
-// Сувора типізація стилів для Next.js
+
 const css = (cssStyles || {}) as Record<string, string>;
 
 export default function NoteDetailsClient() {
@@ -18,6 +18,7 @@ export default function NoteDetailsClient() {
     queryKey: ['note', id],
     queryFn: () => fetchNoteById(id as string),
     enabled: !!id,
+     refetchOnMount: false,
   });
 
   if (isLoading) {
